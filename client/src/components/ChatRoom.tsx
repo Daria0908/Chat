@@ -13,16 +13,27 @@ const ChatRoom: React.FC = observer(() => {
     }
   }, []);
 
+  if (!store.messagesIsReverse) {
+    store.currentMessages = store.messages;
+  } else {
+    store.currentMessages = store.messagesReverse;
+  }
+
+  const sortMessages = (event: any) => {
+    store.messagesIsReverse ? (store.messagesIsReverse = false) : (store.messagesIsReverse = true);
+  };
+
   return (
     <div>
       <div>
-        {store.messages.map((message, index) => (
+        {store.currentMessages.map((message, index) => (
           <div key={index}>
             <h2>{message.userName}</h2>
             <p>{message.timestamp}</p>
             <p>{message.text}</p>
           </div>
         ))}
+        <button onClick={sortMessages}>reverse messages</button>
       </div>
       <EnterMessage />
     </div>

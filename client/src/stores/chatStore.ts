@@ -7,11 +7,12 @@ class ChatStore implements IChatStore {
     makeAutoObservable(this);
   }
   messages: IMessage[] = [];
-  currentNickname: string = "";
+  messagesReverse: IMessage[] = [];
+  currentMessages: IMessage[] = [];
 
-  addMessage(message: IMessage): void {
-    this.messages.push(message);
-  }
+  messagesIsReverse: boolean = false;
+
+  currentNickname: string = "";
 
   setNickname(nickname: string): void {
     this.currentNickname = nickname;
@@ -20,8 +21,10 @@ class ChatStore implements IChatStore {
 
 export interface IChatStore {
   messages: IMessage[];
+  messagesReverse: IMessage[];
+  currentMessages: IMessage[];
+  messagesIsReverse: boolean;
   currentNickname: string;
-  addMessage: (m: IMessage) => void;
   setNickname: (n: string) => void;
 }
 

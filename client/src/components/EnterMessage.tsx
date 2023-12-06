@@ -12,9 +12,7 @@ const EnterMessage: React.FC = observer(() => {
     e.preventDefault();
 
     if (message.trim() !== "") {
-      console.log({ text: message, userName: store.currentNickname });
       webSocketService.sendMessage({ text: message, userName: store.currentNickname, timestamp: "" });
-
       setMessage("");
     }
   };

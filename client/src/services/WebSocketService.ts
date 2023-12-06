@@ -17,12 +17,15 @@ class WebSocketService {
     };
 
     this.socket.onmessage = (message) => {
-      console.log(message);
       if (message.data.includes("u have a new message:")) {
         const index = message.data.indexOf("{");
         const str = JSON.parse(message.data.slice(index));
-        console.log(str);
-        chatStore.messages.push({ text: str.text, timestamp: str.timestamp, userName: str.userName });
+
+        const indexForDate = str.timestamp.indexOf("G");
+        const newDate = str.timestamp.slice(0, indexForDate);
+
+        chatStore.messages.push({ text: str.text, timestamp: newDate, userName: str.userName });
+        chatStore.messagesReverse.unshift({ text: str.text, timestamp: newDate, userName: str.userName });
       }
     };
 
