@@ -14,8 +14,6 @@ _Этот проект представляет собой простой онл
 
 **1. Клонирование репозитория:**
 
-bash
-Copy code
 git clone https://github.com/Daria0908/chat.git & cd chat
 
 **2. Запуск приложения:**
