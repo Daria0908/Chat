@@ -16,8 +16,7 @@ _Этот проект представляет собой простой онл
 
 bash
 Copy code
-git clone https://github.com/Daria0908/chat.git
-cd chat
+git clone https://github.com/Daria0908/chat.git & cd chat
 
 **Запуск приложения:**
 
