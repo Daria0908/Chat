@@ -6,14 +6,15 @@ import "./messages.scss";
 
 const Messages: React.FC = observer(() => {
   const store = useContext(ChatStoreContext);
-  let className: string | null = "user__current";
+  let classNameUser: string = "user__current";
+  let classNameRecipient: string = "user__recipient";
 
   return (
     <div>
       <h3 className="users__header">Users</h3>
       <div className="users">
         {store.messages.map((message, index) => (
-          <div key={index} className={`${store.currentNickname === message.userName && className} message`}>
+          <div key={index} className={`${store.currentNickname === message.userName ? classNameUser : classNameRecipient} message`}>
             <div className="about__user">
               <img className="userAvatar" src={userAvatar} alt="userAvatar" />
               <h2 className="userName">{message.userName}</h2>
