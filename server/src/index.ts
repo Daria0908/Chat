@@ -33,7 +33,6 @@ wss.on("connection", (ws: WebSocket) => {
           timestamp: new Date(),
           userName: currentUser.nickname,
         };
-        console.log(`User ${currentUser.nickname} was connected`);
         ws.send(`You join successful like ${currentUser.nickname} with id: ${currentUser.id}`);
         break;
 

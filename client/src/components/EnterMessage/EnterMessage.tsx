@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import webSocketService from "../services/WebSocketService";
-import { ChatStoreContext, IChatStore } from "../stores/chatStore";
+import React, { useState, useContext } from "react";
+import webSocketService from "../../services/WebSocketService";
+import { ChatStoreContext } from "../../stores/chatStore";
 import { observer } from "mobx-react-lite";
-import { IMessage } from "../models/Message";
+import "./enterMessage.scss";
+import { IChatStore } from "../../models/ChatStore";
 
 const EnterMessage: React.FC = observer(() => {
   const [message, setMessage] = useState<string>("");
@@ -22,9 +23,17 @@ const EnterMessage: React.FC = observer(() => {
   };
 
   return (
-    <div>
-      <input value={message} onKeyDown={handleEnter} onChange={(e) => setMessage(e.target.value)} placeholder="enter your message" />
-      <button onClick={handleSendMessage}>Enter message</button>
+    <div className="message">
+      <input
+        className="input__message"
+        value={message}
+        onKeyDown={handleEnter}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="enter your message"
+      />
+      <button className="btn__enter-Message" onClick={handleSendMessage}>
+        Send Message
+      </button>
     </div>
   );
 });

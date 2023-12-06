@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EnterNickname from "./components/EnterNickname";
-import ChatRoom from "./components/ChatRoom";
+import EnterNickname from "./components/EnterNickname/EnterNickname";
+import ChatRoom from "./components/ChatRoom/ChatRoom";
 import React, { useEffect } from "react";
 import webSocketService from "./services/WebSocketService";
 
@@ -9,7 +9,7 @@ const App: React.FC = () => {
     webSocketService.connectWebSocket();
 
     return () => {
-      webSocketService.disconect(); //чтобы websocket не подключался дважды
+      webSocketService.disconect();
     };
   }, []);
   return (

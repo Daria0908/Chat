@@ -1,14 +1,10 @@
 import chatStore from "../stores/chatStore";
 
 class WebSocketService {
-  constructor() {
-    console.log("create websocket");
-  }
   socket: WebSocket | null = null;
   connected: boolean = false;
 
   connectWebSocket() {
-    console.log("connectWebSocket");
     this.socket = new WebSocket("ws://localhost:3001");
 
     this.socket.onopen = () => {
@@ -43,7 +39,7 @@ class WebSocketService {
     if (!nickname) {
       return;
     }
-    console.log("sendNickname");
+
     if (this.connected && this.socket) {
       this.socket.send(JSON.stringify({ type: "login", nickname }));
     } else {

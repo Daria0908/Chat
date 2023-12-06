@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { IMessage } from "../models/Message";
 import { createContext } from "react";
+import { IChatStore } from "../models/ChatStore";
 
 class ChatStore implements IChatStore {
   constructor() {
@@ -17,15 +18,6 @@ class ChatStore implements IChatStore {
   setNickname(nickname: string): void {
     this.currentNickname = nickname;
   }
-}
-
-export interface IChatStore {
-  messages: IMessage[];
-  messagesReverse: IMessage[];
-  currentMessages: IMessage[];
-  messagesIsReverse: boolean;
-  currentNickname: string;
-  setNickname: (n: string) => void;
 }
 
 export const chatStore = new ChatStore();

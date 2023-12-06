@@ -1,14 +1,17 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { ChatStoreContext } from "../stores/chatStore";
-import EnterMessage from "./EnterMessage";
+import { ChatStoreContext } from "../../stores/chatStore";
+import EnterMessage from "../EnterMessage/EnterMessage";
 import { useNavigate } from "react-router-dom";
+import "./chatRoom.scss";
+import Users from "../Users/Users";
 
 const ChatRoom: React.FC = observer(() => {
   const store = useContext(ChatStoreContext);
-  const navigate = useNavigate();
+
   useEffect(() => {
     if (!store.currentNickname) {
+      const navigate = useNavigate();
       navigate("/");
     }
   }, []);
@@ -24,18 +27,12 @@ const ChatRoom: React.FC = observer(() => {
   };
 
   return (
-    <div>
-      <div>
-        {store.currentMessages.map((message, index) => (
-          <div key={index}>
-            <h2>{message.userName}</h2>
-            <p>{message.timestamp}</p>
-            <p>{message.text}</p>
-          </div>
-        ))}
-        <button onClick={sortMessages}>reverse messages</button>
-      </div>
-      <EnterMessage />
+    <div className="chat">
+      <Users />
+      <EnterMessage />{" "}
+      <button className="btn__reverse" onClick={sortMessages}>
+        Sort messages
+      </button>
     </div>
   );
 });

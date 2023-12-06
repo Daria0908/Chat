@@ -1,0 +1,51 @@
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  .message {
+    max-width: 70%;
+    padding: 0 1em;
+    margin: 0.5em 0;
+    border-radius: 20px;
+    background: rgb(117,189,117);
+    background: linear-gradient(90deg, rgba(117,189,117,0.8240546218487395) 0%, rgba(73,144,105,0.9585084033613446) 100%);
+
+    .about {
+      &__user {
+        display: flex;
+        
+
+        img {
+        width: 50px;
+        margin-right: 1em;
+        }
+      }
+
+      &__message {
+        display: flex;
+        flex-direction: column;
+
+        .date {
+          align-self: end;
+          font-size: 10px;
+          margin: 0;
+        }
+
+        .text {
+          word-break: break-all;
+          align-self: start;
+        }
+      }
+    }
+  }
+  .user__current {
+    align-self: end;
+    background: rgb(117,162,189);
+    background: linear-gradient(90deg, rgba(117,162,189,0.8240546218487395) 0%, rgba(73,96,144,0.9585084033613446) 100%);
+  }
+
+}
+
+
+
