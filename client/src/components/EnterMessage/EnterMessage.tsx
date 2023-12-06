@@ -4,6 +4,7 @@ import { ChatStoreContext } from "../../stores/chatStore";
 import { observer } from "mobx-react-lite";
 import "./enterMessage.scss";
 import { IChatStore } from "../../models/ChatStore";
+import sengMessageImg from "../../assets/sendMessage.png";
 
 const EnterMessage: React.FC = observer(() => {
   const [message, setMessage] = useState<string>("");
@@ -20,22 +21,16 @@ const EnterMessage: React.FC = observer(() => {
     }
   };
 
-  const handleEnter = (event: any) => {
-    if (event.key === "Enter") handleSendMessage(event);
-  };
-
   return (
-    <div className="message">
-      <input
-        className="input__message"
+    <div className="input__message">
+      <textarea
+        className="textarea__message"
         value={message}
-        onKeyDown={handleEnter}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="enter your message"
+        maxLength={300}
       />
-      <button className="btn__enter-Message" onClick={handleSendMessage}>
-        Send Message
-      </button>
+      <img src={sengMessageImg} className="btn__enter-Message" onClick={handleSendMessage} />
     </div>
   );
 });

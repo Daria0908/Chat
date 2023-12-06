@@ -17,8 +17,8 @@ const Messages: React.FC = observer(() => {
 
   return (
     <div>
+      <h3 className="users__header">Users</h3>
       <div className="users">
-        <h3>Users</h3>
         {store.currentMessages.map((message, index) => (
           <div key={index} className={`${store.currentNickname === message.userName && className} message`}>
             <div className="about__user">

@@ -1,24 +1,41 @@
+.users__header {
+  position: fixed;
+  top: 10px;
+}
+
 .users {
   display: flex;
   flex-direction: column;
   align-items: start;
+  font-size: 14px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 400px;
+  margin-top: 5em;
 
   .message {
     max-width: 70%;
+    min-width: 20%;
+    
     padding: 0 1em;
     margin: 0.5em 0;
     border-radius: 20px;
-    background: rgb(117,189,117);
-    background: linear-gradient(90deg, rgba(117,189,117,0.8240546218487395) 0%, rgba(73,144,105,0.9585084033613446) 100%);
+    background: #C1FFC1;
+    
 
     .about {
       &__user {
         display: flex;
-        
+        align-items: center;
 
-        img {
-        width: 50px;
+        .userAvatar {
+        height:  30px;
         margin-right: 1em;
+        }
+
+        .userName {
+          font-size: 20px;
         }
       }
 
@@ -28,6 +45,7 @@
 
         .date {
           align-self: end;
+          max-width: 50px;
           font-size: 10px;
           margin: 0;
         }
@@ -35,17 +53,17 @@
         .text {
           word-break: break-all;
           align-self: start;
+          width: calc(100% - 55px);
+          margin: 0;
         }
       }
     }
   }
   .user__current {
     align-self: end;
-    background: rgb(117,162,189);
-    background: linear-gradient(90deg, rgba(117,162,189,0.8240546218487395) 0%, rgba(73,96,144,0.9585084033613446) 100%);
+    background: #BFE4F9   ;
   }
 
 }
-
 
 

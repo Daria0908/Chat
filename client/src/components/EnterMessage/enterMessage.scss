@@ -1,13 +1,16 @@
 .btn__enter-Message {
-  background: transparent;
+  width: 20px;
+}
+
+.textarea__message {
+  margin-right: 5px;
   border-radius: 5px;
+  width: calc(100% - 35px);
+  height: 50px;
 }
 
 .input__message {
-  margin-right: 1em;
-  border-radius: 5px;
-}
-
-.message {
   margin-bottom: 1em;
+  display: flex;
+  align-items: center;
 }

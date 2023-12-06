@@ -1,13 +1,16 @@
 .input__nickname {
   margin-right: 1em;
-  border-radius: 5px;
 }
 
 .btn__enter-nickname {
-  background: transparent;
-  border-radius: 5px;
-  background: linear-gradient(90deg, rgba(117,189,117,0.8240546218487395) 0%, rgba(73,96,144,0.9585084033613446) 100%);
+  background: #BFE4F9;
 }
 .btn__enter-nickname:hover {
   color: white;
+}
+.input__nickname, .btn__enter-nickname {
+  border-radius: 5px;
+  padding:  0.5em 1em;
+  font-size: 14px;
+  border: #7da3b8 solid;
 }
