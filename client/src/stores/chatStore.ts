@@ -7,6 +7,7 @@ class ChatStore implements IChatStore {
   constructor() {
     makeAutoObservable(this);
   }
+
   messages: IMessage[] = [];
   messagesReverse: IMessage[] = [];
   currentMessages: IMessage[] = [];

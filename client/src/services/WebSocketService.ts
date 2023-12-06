@@ -20,8 +20,11 @@ class WebSocketService {
         const indexForDate = str.timestamp.indexOf("G");
         const newDate = str.timestamp.slice(0, indexForDate);
 
-        chatStore.messages.push({ text: str.text, timestamp: newDate, userName: str.userName });
-        chatStore.messagesReverse.unshift({ text: str.text, timestamp: newDate, userName: str.userName });
+        const currentMessage = { text: str.text, timestamp: newDate, userName: str.userName };
+
+        chatStore.messages.push(currentMessage);
+        chatStore.messagesReverse.unshift(currentMessage);
+        localStorage.setItem("messages", JSON.stringify([...chatStore.messages]));
       }
     };
 

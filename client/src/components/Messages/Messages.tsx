@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { ChatStoreContext } from "../../stores/chatStore";
 import userAvatar from "../../assets/userAvatar.png";
-import "./users.scss";
+import "./messages.scss";
 
-const Users: React.FC = observer(() => {
+const Messages: React.FC = observer(() => {
   const store = useContext(ChatStoreContext);
 
   if (!store.messagesIsReverse) {
@@ -18,6 +18,7 @@ const Users: React.FC = observer(() => {
   return (
     <div>
       <div className="users">
+        <h3>Users</h3>
         {store.currentMessages.map((message, index) => (
           <div key={index} className={`${store.currentNickname === message.userName && className} message`}>
             <div className="about__user">
@@ -35,4 +36,4 @@ const Users: React.FC = observer(() => {
   );
 });
 
-export default Users;
+export default Messages;

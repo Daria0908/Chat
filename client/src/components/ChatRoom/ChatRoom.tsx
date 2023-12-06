@@ -4,14 +4,12 @@ import { ChatStoreContext } from "../../stores/chatStore";
 import EnterMessage from "../EnterMessage/EnterMessage";
 import { useNavigate } from "react-router-dom";
 import "./chatRoom.scss";
-import Users from "../Users/Users";
-
+import Messages from "../Messages/Messages";
 const ChatRoom: React.FC = observer(() => {
   const store = useContext(ChatStoreContext);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (!store.currentNickname) {
-      const navigate = useNavigate();
       navigate("/");
     }
   }, []);
@@ -28,7 +26,7 @@ const ChatRoom: React.FC = observer(() => {
 
   return (
     <div className="chat">
-      <Users />
+      <Messages />
       <EnterMessage />{" "}
       <button className="btn__reverse" onClick={sortMessages}>
         Sort messages
