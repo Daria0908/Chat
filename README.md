@@ -1,48 +1,39 @@
-# Getting Started with Create React App
+# Онлайн-чат
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Этот проект представляет собой простой онлайн-чат, разработанный на основе [SCSS, TypeScript, MobX, React, Websocket, NodeJS]. Чат позволяет пользователям обмениваться сообщениями в реальном времени через веб-интерфейс._
 
-## Available Scripts
+## Особенности
 
-In the project directory, you can run:
+**Реальное время:** Сообщения отображаются мгновенно без необходимости перезагрузки страницы.
+**Простота использования:** Интуитивный интерфейс позволяет легко отправлять и получать сообщения.
+**Кэширование на стороне клиента:** Используется механизм кэширования для сохранения ранее загруженных данных на стороне браузера пользователя, что позволяет быстрее отображать сообщения и уменьшает нагрузку на сервер при повторных запросах.
 
-### `npm i`
+## Установка и запуск
 
-### `npm start`
+Чтобы установить и запустить проект локально, выполните следующие шаги:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Клонирование репозитория:**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+bash
+Copy code
+git clone https://github.com/Daria0908/chat.git
+cd online-chat
 
-### `npm test`
+**Запуск приложения:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### npm start
 
-### `npm run build`
+**Открытие в браузере:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Откройте ваш веб-браузер и перейдите по адресу http://localhost:3000 (или другой порт, если он отличается).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Как использовать
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Авторизация:**
+[Введите никнейм, с которым хотите присоединиться к чату и нажмите *Enter* или кнопку "Join to chat".]
 
-### `npm run eject`
+**Отправка сообщений:**
+Введите ваше сообщение в поле для ввода текста и нажмите _Enter_ или кнопку "Send Message.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Получение сообщений:**
+Новые сообщения будут отображаться в реальном времени в окне чата без перезагрузки страницы.
