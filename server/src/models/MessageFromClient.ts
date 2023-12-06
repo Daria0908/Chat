@@ -1,5 +1,5 @@
 export interface IMessageFromClient {
-  text?: string;
+  text: string;
+  timestamp: Date;
   userName: string;
-  timestamp?: string;
 }

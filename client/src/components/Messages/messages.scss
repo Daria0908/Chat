@@ -1,17 +1,11 @@
-.users__header {
-  position: fixed;
-  top: 10px;
-}
-
 .users {
   display: flex;
   flex-direction: column;
   align-items: start;
   font-size: 14px;
-  overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 500px;
   margin-top: 5em;
 
   .message {

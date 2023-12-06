@@ -10,12 +10,7 @@ const App: React.FC = () => {
   const store: IChatStore = useContext(ChatStoreContext);
   useEffect(() => {
     webSocketService.connectWebSocket();
-
-    const savedMessages = localStorage.getItem("messages");
-    if (savedMessages) {
-      const parsedMessages = JSON.parse(savedMessages);
-      store.messages = parsedMessages;
-    }
+    store.getMessagesFromLocalStorage();
     return () => {
       webSocketService.disconect();
     };

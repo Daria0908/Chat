@@ -1,3 +1,4 @@
+import { IMessage } from "../models/Message";
 import chatStore from "../stores/chatStore";
 
 class WebSocketService {
@@ -14,17 +15,8 @@ class WebSocketService {
 
     this.socket.onmessage = (message) => {
       if (message.data.includes("u have a new message:")) {
-        const index = message.data.indexOf("{");
-        const str = JSON.parse(message.data.slice(index));
-
-        const indexForDate = str.timestamp.indexOf("G");
-        const newDate = str.timestamp.slice(0, indexForDate);
-
-        const currentMessage = { text: str.text, timestamp: newDate, userName: str.userName };
-
-        chatStore.messages.push(currentMessage);
-        chatStore.messagesReverse.unshift(currentMessage);
-        localStorage.setItem("messages", JSON.stringify([...chatStore.messages]));
+        const currentMessage = this.mapMessage(message);
+        chatStore.addMessage(currentMessage);
       }
     };
 
@@ -56,6 +48,16 @@ class WebSocketService {
     } else {
       console.log("Not connected to the server");
     }
+  }
+
+  mapMessage(message: MessageEvent): IMessage {
+    const index = message.data.indexOf("{");
+    const str = JSON.parse(message.data.slice(index));
+
+    const indexForDate = str.timestamp.indexOf("G");
+    const newDate = str.timestamp.slice(0, indexForDate);
+
+    return { text: str.text, timestamp: newDate, userName: str.userName };
   }
 }
 

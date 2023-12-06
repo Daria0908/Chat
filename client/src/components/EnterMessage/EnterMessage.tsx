@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, SyntheticEvent } from "react";
 import webSocketService from "../../services/WebSocketService";
 import { ChatStoreContext } from "../../stores/chatStore";
 import { observer } from "mobx-react-lite";
@@ -10,7 +10,7 @@ const EnterMessage: React.FC = observer(() => {
   const [message, setMessage] = useState<string>("");
   const store: IChatStore = useContext(ChatStoreContext);
 
-  const handleSendMessage = (e: any) => {
+  const handleSendMessage = (e: SyntheticEvent) => {
     e.preventDefault();
 
     if (message.trim() !== "") {

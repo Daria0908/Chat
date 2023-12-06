@@ -2,9 +2,11 @@ import { IMessage } from "./Message";
 
 export interface IChatStore {
   messages: IMessage[];
-  messagesReverse: IMessage[];
-  currentMessages: IMessage[];
   messagesIsReverse: boolean;
   currentNickname: string;
   setNickname: (n: string) => void;
+  setMessages: (data: IMessage[]) => void;
+  toggleIsReverse: () => void;
+  addMessage: (m: IMessage) => void;
+  getMessagesFromLocalStorage: () => void;
 }

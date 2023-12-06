@@ -6,20 +6,13 @@ import "./messages.scss";
 
 const Messages: React.FC = observer(() => {
   const store = useContext(ChatStoreContext);
-
-  if (!store.messagesIsReverse) {
-    store.currentMessages = store.messages;
-  } else {
-    store.currentMessages = store.messagesReverse;
-  }
-
   let className: string | null = "user__current";
 
   return (
     <div>
       <h3 className="users__header">Users</h3>
       <div className="users">
-        {store.currentMessages.map((message, index) => (
+        {store.messages.map((message, index) => (
           <div key={index} className={`${store.currentNickname === message.userName && className} message`}>
             <div className="about__user">
               <img className="userAvatar" src={userAvatar} alt="userAvatar" />

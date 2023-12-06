@@ -3,8 +3,8 @@ import http from "http";
 import WebSocket from "ws";
 import { Server } from "http";
 import { IUser } from "./models/User";
-import { IMessageToClient } from "./models/MessageToClient";
 import { v4 } from "uuid";
+import { IMessageToClient } from "./models/MessageToClient";
 import { IMessageFromClient } from "./models/MessageFromClient";
 
 const app = express();
@@ -27,13 +27,9 @@ wss.on("connection", (ws: WebSocket) => {
           id: v4(),
           nickname: data.nickname,
         };
-        users.push(currentUser);
-        messageToClient = {
-          text: `User ${currentUser.nickname} was connected`,
-          timestamp: new Date(),
-          userName: currentUser.nickname,
-        };
-        ws.send(`You join successful like ${currentUser.nickname} with id: ${currentUser.id}`);
+        if (!users.some((user: IUser) => user.nickname === currentUser.nickname)) {
+          users.push(currentUser);
+        }
         break;
 
       case "message":
@@ -41,11 +37,17 @@ wss.on("connection", (ws: WebSocket) => {
         messageFromClient = {
           text: model.text,
           userName: model.userName,
-          timestamp: `${new Date().toString()}`,
+          timestamp: new Date(),
         };
         mesages.push(messageFromClient);
 
-        const message = JSON.stringify(messageFromClient);
+        messageToClient = {
+          text: messageFromClient.text,
+          userName: messageFromClient.userName,
+          timestamp: messageFromClient.timestamp.toString(),
+        };
+
+        const message = JSON.stringify(messageToClient);
         const m = `u have a new message: ${message}`;
 
         wss.clients.forEach((client) => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, SyntheticEvent } from "react";
 import { observer } from "mobx-react-lite";
 import { ChatStoreContext } from "../../stores/chatStore";
 import EnterMessage from "../EnterMessage/EnterMessage";
@@ -14,21 +14,16 @@ const ChatRoom: React.FC = observer(() => {
     }
   }, []);
 
-  if (!store.messagesIsReverse) {
-    store.currentMessages = store.messages;
-  } else {
-    store.currentMessages = store.messagesReverse;
-  }
-
-  const sortMessages = (event: any) => {
-    store.messagesIsReverse ? (store.messagesIsReverse = false) : (store.messagesIsReverse = true);
+  const sortMessages = (e: SyntheticEvent) => {
+    e.preventDefault();
+    store.toggleIsReverse();
   };
 
   return (
     <div className="chat">
       <Messages />
       <EnterMessage />{" "}
-      <button className="btn__reverse" onClick={sortMessages}>
+      <button type="button" className="btn__reverse" onClick={sortMessages}>
         Sort messages
       </button>
     </div>

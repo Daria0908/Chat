@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, SyntheticEvent } from "react";
 import webSocketService from "../../services/WebSocketService";
 import { observer } from "mobx-react-lite";
 import { ChatStoreContext } from "../../stores/chatStore";
@@ -12,7 +12,7 @@ const EnterNickname: React.FC = observer(() => {
   const store: IChatStore = useContext(ChatStoreContext);
   const [nickname, setNickname] = useState<string>("");
 
-  const handleSendNickname = (e: any) => {
+  const handleSendNickname = (e: SyntheticEvent) => {
     e?.preventDefault();
 
     if (nickname.trim() !== "") {
@@ -22,8 +22,8 @@ const EnterNickname: React.FC = observer(() => {
     }
   };
 
-  const handleEnter = (event: any) => {
-    if (event.key === "Enter") handleSendNickname(event);
+  const handleEnter = (e: any) => {
+    if (e.key === "Enter") handleSendNickname(e);
   };
 
   return (
