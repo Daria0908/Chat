@@ -1,5 +1,6 @@
-$primary-color: #799dbc;
-$secondary-color: #86be9e;
+$primary-color: #BFE4F9;
+$secondary-color: rgba(234, 200, 240, 0.3);
+$message-color: rgb(126, 126, 126);
 $bg-color: #f5f5f5;
 $chat-bubble-radius: 15px;
 $chat-bubble-padding: 10px;
@@ -7,31 +8,26 @@ $chat-bubble-padding: 10px;
 .users {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  font-size: 14px;
+  font-size: 12px;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 500px;
-  margin-top: 5em;
-  width: 100%;
-  margin: 20px auto;
-  background-color: $bg-color;
+  background-color: #f5f5f5;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
+  position: fixed;
+  bottom: 100px;
+  top: 10px;
+  right: 10px;
+  left: 10px;
 
   .message {
     max-width: 70%;
     min-width: 20%;
-    
-    padding: 0 1em;
     background: #C1FFC1;
-
-    margin: 10px;
-    padding: $chat-bubble-padding;
-    border-radius: $chat-bubble-radius;
-    display: inline-block;
-    word-wrap: break-word;
+    color: rgb(126, 126, 126);
+    margin: 0.1em;
+    padding: 0.1em;
+    border-radius: 15px;
 
     .about {
       &__user {
@@ -44,18 +40,19 @@ $chat-bubble-padding: 10px;
         }
 
         .userName {
-          font-size: 20px;
+          font-size: 2em;
+          margin: 0.1em;
         }
       }
 
       &__message {
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
 
         .date {
           align-self: end;
           max-width: 50px;
-          font-size: 10px;
+          font-size: 1em;
           margin: 0;
         }
 
@@ -64,6 +61,7 @@ $chat-bubble-padding: 10px;
           align-self: start;
           width: calc(100% - 55px);
           margin: 0;
+          font-size: 2em;
         }
       }
     }
@@ -71,15 +69,10 @@ $chat-bubble-padding: 10px;
   .user__current {
     align-self: end;
     background-color: $primary-color;
-    color: white;
   }
 
   .user__recipient {
     align-self: start;
     background-color: $secondary-color;
-    color: white;
   }
-
 }
-
-

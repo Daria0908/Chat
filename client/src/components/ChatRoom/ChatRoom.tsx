@@ -22,7 +22,7 @@ const ChatRoom: React.FC = observer(() => {
   return (
     <div className="chat">
       <Messages />
-      <EnterMessage />{" "}
+      <EnterMessage />
       <button type="button" className="btn__reverse" onClick={sortMessages}>
         Sort messages
       </button>

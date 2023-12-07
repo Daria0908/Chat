@@ -1,8 +1,11 @@
 .btn__reverse{
   background: transparent;
   border-radius: 5px;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
 }
 
 .chat {
-  margin: 1em;
+  margin: 1em auto;
 }

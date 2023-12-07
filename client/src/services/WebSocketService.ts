@@ -54,10 +54,7 @@ class WebSocketService {
     const index = message.data.indexOf("{");
     const str = JSON.parse(message.data.slice(index));
 
-    const indexForDate = str.timestamp.indexOf("G");
-    const newDate = str.timestamp.slice(0, indexForDate);
-
-    return { text: str.text, timestamp: newDate, userName: str.userName };
+    return { text: str.text, timestamp: str.timestamp, userName: str.userName };
   }
 }
 
