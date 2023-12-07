@@ -18,7 +18,7 @@ git clone https://github.com/Daria0908/chat.git & cd chat
 
 **2. Запуск приложения:**
 
-### `npm install`
+### `npm i`
 
 ### `npm start`
 
