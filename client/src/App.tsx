@@ -4,13 +4,12 @@ import ChatRoom from "./components/ChatRoom/ChatRoom";
 import React, { useEffect, useContext } from "react";
 import webSocketService from "./services/WebSocketService";
 import { IChatStore } from "./models/ChatStore";
-import { ChatStoreContext } from "./stores/chatStore";
+import chatStore from "./stores/chatStore";
 
 const App: React.FC = () => {
-  const store: IChatStore = useContext(ChatStoreContext);
   useEffect(() => {
     webSocketService.connectWebSocket();
-    store.getMessagesFromLocalStorage();
+    chatStore.getMessagesFromLocalStorage();
     return () => {
       webSocketService.disconect();
     };

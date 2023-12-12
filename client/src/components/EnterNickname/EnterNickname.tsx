@@ -1,23 +1,21 @@
 import React, { useState, useContext, SyntheticEvent } from "react";
 import webSocketService from "../../services/WebSocketService";
 import { observer } from "mobx-react-lite";
-import { ChatStoreContext } from "../../stores/chatStore";
 import { useNavigate } from "react-router-dom";
 import { IChatStore } from "../../models/ChatStore";
 import "./enterNickname.scss";
+import chatStore from "../../stores/chatStore";
 
 const EnterNickname: React.FC = observer(() => {
   const navigate = useNavigate();
-
-  const store: IChatStore = useContext(ChatStoreContext);
   const [nickname, setNickname] = useState<string>("");
 
   const handleSendNickname = (e: SyntheticEvent) => {
     e?.preventDefault();
 
     if (nickname.trim() !== "") {
-      store.setNickname(nickname);
-      webSocketService.sendNickname(store.currentNickname);
+      chatStore.setNickname(nickname);
+      webSocketService.sendNickname(chatStore.currentNickname);
       navigate("/chat-room");
     }
   };

@@ -54,7 +54,7 @@ class WebSocketService {
     const index = message.data.indexOf("{");
     const str = JSON.parse(message.data.slice(index));
 
-    return { text: str.text, timestamp: str.timestamp, userName: str.userName };
+    return { text: str.text, timestamp: str.timestamp, userName: str.userName, id: str.id };
   }
 }
 

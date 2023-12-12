@@ -1,22 +1,21 @@
 import React, { useEffect, useContext, SyntheticEvent } from "react";
 import { observer } from "mobx-react-lite";
-import { ChatStoreContext } from "../../stores/chatStore";
 import EnterMessage from "../EnterMessage/EnterMessage";
 import { useNavigate } from "react-router-dom";
 import "./chatRoom.scss";
 import Messages from "../Messages/Messages";
+import chatStore from "../../stores/chatStore";
 const ChatRoom: React.FC = observer(() => {
-  const store = useContext(ChatStoreContext);
   const navigate = useNavigate();
   useEffect(() => {
-    if (!store.currentNickname) {
+    if (!chatStore.currentNickname) {
       navigate("/");
     }
   }, []);
 
   const sortMessages = (e: SyntheticEvent) => {
     e.preventDefault();
-    store.toggleIsReverse();
+    chatStore.toggleIsReverse();
   };
 
   return (

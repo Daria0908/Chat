@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 import { IMessage } from "../models/Message";
-import { createContext } from "react";
 import { IChatStore } from "../models/ChatStore";
 
 class ChatStore implements IChatStore {
@@ -42,5 +41,4 @@ class ChatStore implements IChatStore {
 }
 
 export const chatStore = new ChatStore();
-export const ChatStoreContext = createContext(chatStore);
 export default chatStore;
